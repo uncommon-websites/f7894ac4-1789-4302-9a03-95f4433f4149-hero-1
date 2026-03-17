@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvey - Practice Made Perfect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0a',
+                            gray: '#a1a1aa',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-scale-in {
+            opacity: 0;
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .delay-0 { animation-delay: 0ms; }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-600 { animation-delay: 600ms; }
+
+        .text-balance { text-wrap: balance; }
+        .text-pretty { text-wrap: pretty; }
+
+        /* Hide scrollbar for logo strip */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .mask-image-linear-gradient {
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up, .animate-fade-in, .animate-scale-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans selection:bg-white/30">
+
+    <div class="relative min-h-screen flex flex-col overflow-hidden">
+        
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0 bg-[#0a0a0a]">
+            <img src="https://imolwncbqxugevwmleed.supabase.co/storage/v1/object/public/public-assets/hero-images/f7894ac4-1789-4302-9a03-95f4433f4149/hero-1-img-0-1773777435694.png" alt="Office Background" class="w-full h-full object-cover animate-scale-in delay-0 opacity-80">
+            <!-- Gradient overlays to ensure text readability and transition to dark bottom -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/40 to-transparent animate-fade-in delay-0"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/20 to-transparent animate-fade-in delay-0"></div>
+        </div>
+
+        <!-- Header / Navigation -->
+        <header class="relative z-10 w-full px-6 md:px-12 lg:px-16 py-8 flex items-center justify-between animate-fade-in delay-0">
+            <div class="flex items-center gap-12">
+                <!-- Logo -->
+                <a href="#" class="text-[32px] font-serif tracking-tight text-white leading-none">Harvey</a>
+                
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#" class="text-[13px] font-medium text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
+                        Platform
+                        <svg width="8" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-60">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-[13px] font-medium text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
+                        Solutions
+                        <svg width="8" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-60">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-[13px] font-medium text-white/80 hover:text-white transition-colors">Customers</a>
+                    <a href="#" class="text-[13px] font-medium text-white/80 hover:text-white transition-colors">Security</a>
+                    <a href="#" class="text-[13px] font-medium text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
+                        Resources
+                        <svg width="8" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-60">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-[13px] font-medium text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
+                        About
+                        <svg width="8" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-60">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Right Action -->
+            <div class="hidden md:block">
+                <a href="#" class="text-[13px] font-medium text-white/80 hover:text-white transition-colors">Login</a>
+            </div>
+        </header>
+
+        <!-- Main Hero Content -->
+        <main class="relative z-10 flex-grow flex flex-col justify-center px-6 md:px-12 lg:px-16 w-full max-w-[1440px] mx-auto">
+            <div class="max-w-2xl mt-[-8vh]">
+                <h1 class="text-5xl md:text-6xl lg:text-[68px] font-serif text-white leading-[1.05] tracking-tight mb-6 animate-fade-in-up delay-100 text-balance">
+                    Practice Made Perfect
+                </h1>
+                <p class="text-[17px] md:text-[19px] text-white/90 leading-relaxed mb-10 animate-fade-in-up delay-200 text-pretty max-w-[540px]">
+                    Today's top law firms and in-house legal teams trust Harvey to elevate their craft and navigate complexity.
+                </p>
+                <div class="animate-fade-in-up delay-300">
+                    <button class="bg-white text-black px-6 py-3 rounded-[2px] font-medium text-[14px] hover:bg-gray-100 transition-all duration-200 active:scale-97">
+                        Request a Demo
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Logo Strip Footer -->
+        <div class="relative z-10 w-full bg-[#0a0a0a] border-t border-white/5 py-6 px-6 md:px-12 lg:px-16 animate-fade-in-up delay-400">
+            <div class="max-w-[1440px] mx-auto flex items-center justify-between gap-8">
+                
+                <!-- Logos Container -->
+                <div class="flex items-center gap-8 md:gap-12 overflow-x-auto no-scrollbar flex-grow mask-image-linear-gradient">
+                    <img src="https://imolwncbqxugevwmleed.supabase.co/storage/v1/object/public/public-assets/hero-images/f7894ac4-1789-4302-9a03-95f4433f4149/hero-1-img-1-1773777434284.png" alt="Arman Logo" class="h-4 md:h-5 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0">
+                    <img src="https://imolwncbqxugevwmleed.supabase.co/storage/v1/object/public/public-assets/hero-images/f7894ac4-1789-4302-9a03-95f4433f4149/hero-1-img-2-1773777434316.png" alt="Gleiss Lutz Logo" class="h-5 md:h-6 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0">
+                    <img src="https://placehold.co/80x30/transparent/ffffff.png?text=CMS" alt="CMS Logo" class="h-6 md:h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0">
+                    <img src="https://placehold.co/140x30/transparent/ffffff.png?text=CUATRECASAS" alt="Cuatrecasas Logo" class="h-4 md:h-5 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0">
+                    <img src="https://placehold.co/140x30/transparent/ffffff.png?text=THOMPSON+HINE" alt="Thompson Hine Logo" class="h-6 md:h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0">
+                    <img src="https://placehold.co/100x30/transparent/ffffff.png?text=MERCK" alt="Merck Logo" class="h-4 md:h-5 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0">
+                    <img src="https://placehold.co/120x30/transparent/ffffff.png?text=COMCAST" alt="Comcast Logo" class="h-6 md:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0">
+                    <img src="https://placehold.co/100x30/transparent/ffffff.png?text=DENTONS" alt="Dentons Logo" class="h-4 md:h-5 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0">
+                    <img src="https://placehold.co/120x30/transparent/ffffff.png?text=BakerHostetler" alt="BakerHostetler Logo" class="h-4 md:h-5 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0">
+                    <img src="https://placehold.co/40x40/transparent/ffffff.png?text=P%26G" alt="P&G Logo" class="h-6 md:h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0">
+                </div>
+
+                <!-- Our Customers Button -->
+                <div class="shrink-0 hidden sm:block pl-6 border-l border-white/10 ml-auto">
+                    <button class="px-4 py-1.5 border border-white/20 rounded-[2px] text-[13px] font-medium text-white hover:bg-white/5 transition-colors duration-200 active:scale-97 whitespace-nowrap">
+                        Our Customers
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
