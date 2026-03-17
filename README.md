@@ -1,0 +1,2 @@
+# f7894ac4-1789-4302-9a03-95f4433f4149-hero-1
+Hero section variant 1 for f7894ac4-1789-4302-9a03-95f4433f4149
